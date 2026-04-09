@@ -9,7 +9,7 @@
 /* Header */
 .title {
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 /* Main */
@@ -17,4 +17,5 @@
 .container {
   width: 70%;
   margin: 0 auto;
+  padding: 1rem;
 }

@@ -1,21 +1,11 @@
 <?php
 
-function randomPassGenerator($lunghezza = 10)
-{
-    $caratteri = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&-_?';
-    $stringa = '';
-
-    for ($i = 0; $i < $lunghezza; $i++) {
-        $stringa .= $caratteri[random_int(0, strlen($caratteri) - 1)];
-    }
-
-    return $stringa;
-}
+include_once "./functions.php";
 
 $password = "";
 
 if (isset($_GET['lunghezza'])) {
-    $lunghezza = $_GET['lunghezza'];
+    $lunghezza = (int) $_GET['lunghezza'];
     $password = randomPassGenerator($lunghezza);
 }
 
@@ -25,6 +15,7 @@ if (isset($_GET['lunghezza'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>php-strong-password-generator</title>
 </head>
 <body>
