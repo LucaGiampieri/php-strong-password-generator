@@ -2,13 +2,6 @@
 
 include_once "./functions.php";
 
-$password = "";
-
-if (isset($_GET['lunghezza'])) {
-    $lunghezza = (int) $_GET['lunghezza'];
-    $password = randomPassGenerator($lunghezza);
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,16 +20,72 @@ if (isset($_GET['lunghezza'])) {
 
 <div class="container">
 
-    <form method="GET">
-        <label>Lunghezza Password</label>
-        <input type="number" name="lunghezza" required>
-        <button type="submit">Crea Password</button>
-    </form>
+    <form method="GET" action="result.php">
 
-    <?php if ($password): ?>
-        <h2>Password generata:</h2>
-        <p><?= $password ?></p>
-    <?php endif; ?>
+    <!-- Lunghezza -->
+     <fieldset>
+
+    <legend>Lunghezza Password</legend>
+
+    <label for="lunghezza">Scegli il numero dei caratteri</label>
+    <input 
+        id="lunghezza" 
+        type="number" 
+        name="lunghezza" 
+        required
+        min="1"
+    >
+     </fieldset>
+
+    <!-- Ripetizione caratteri -->
+    <fieldset>
+        <legend>Ripetizione Caratteri</legend>
+
+        <label for="repeat-yes">Sì</label>
+        <input 
+            id="repeat-yes" 
+            type="radio" 
+            name="repeat" 
+            value="yes"
+        >
+
+        <label for="repeat-no">No</label>
+        <input 
+            id="repeat-no" 
+            type="radio" 
+            name="repeat" 
+            value="no"
+        >
+    </fieldset>
+
+    <!-- Tipi di caratteri -->
+    <fieldset>
+        <legend>Tipo di caratteri</legend>
+
+        <label>
+            <input type="checkbox" name="lowercase" value="1">
+            Minuscole
+        </label>
+
+        <label>
+            <input type="checkbox" name="uppercase" value="1">
+            Maiuscole
+        </label>
+
+        <label>
+            <input type="checkbox" name="numbers" value="1">
+            Numeri
+        </label>
+
+        <label>
+            <input type="checkbox" name="symbols" value="1">
+            Simboli
+        </label>
+    </fieldset>
+
+    <button type="submit">Crea Password</button>
+
+</form>
 
 </div>
 

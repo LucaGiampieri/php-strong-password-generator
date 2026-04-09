@@ -18,4 +18,33 @@
   width: 70%;
   margin: 0 auto;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  margin-top: 1rem;
+  width: 40%;
+  padding: 1rem;
+  border-color: blue;
+  border-radius: 10px;
+}
+
+legend {
+  color: blue;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 1rem;
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.back-to-home {
+  padding-top: 1rem;
 }
